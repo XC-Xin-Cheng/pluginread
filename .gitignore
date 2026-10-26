@@ -1,0 +1,54 @@
+# gradle
+
+.gradle/
+build/
+out/
+classes/
+
+# eclipse
+
+*.launch
+
+# idea
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+
+*.DS_Store
+
+# fabric
+
+run/
+
+# java
+
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
+
+# 本地预取的 fabricmc maven 仓库（机器相关，不入库）
+
+# 调试与缓存（不入库）
+.gradle-home3/
+.gradle-home/
+.gradle-home2/
+*.log
+build-log.txt
+offline-log.txt
+deps-log*.txt
+dbg-log.txt
+runclient-log.txt
+insight-log.txt

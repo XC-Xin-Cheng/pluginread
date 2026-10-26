@@ -1,0 +1,68 @@
+plugins {
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+repositories {
+	// 本地预取的 fabricmc 构件 + 阿里云 Central 镜像
+	def fabricLocal = maven {
+		name = 'FabricLocal'
+		url = uri("${projectDir}/local-fabric-maven")
+	}
+	maven {
+		name = 'Aliyun'
+		url = 'https://maven.aliyun.com/repository/public'
+	}
+	// Loom 在应用插件时已把 Fabric/Mojang/Central 插到列表前面，
+	// 官方 Fabric maven 在此网络下被限速，把本地仓库挪到最前优先命中
+	repositories.remove(fabricLocal)
+	repositories.addFirst(fabricLocal)
+}
+
+loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		"pluginread" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	// Fabric API（直接依赖所需模块，避免 umbrella 元数据在网络受限环境的问题）
+	implementation "net.fabricmc.fabric-api:fabric-api-base:2.0.3+ece0632359"
+	implementation "net.fabricmc.fabric-api:fabric-command-api-v2:3.0.5+e2bdee7859"
+	implementation "net.fabricmc.fabric-api:fabric-lifecycle-events-v1:4.0.6+a9b9c17659"
+	implementation "net.fabricmc.fabric-api:fabric-key-mapping-api-v1:2.0.4+e2bdee7859"
+	implementation "net.fabricmc.fabric-api:fabric-networking-api-v1:6.3.0+50a808ce59"
+}
+
+processResources {
+	def version = project.version
+	inputs.property "version", version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+}
+
+java {
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_pluginread" }
+	}
+}

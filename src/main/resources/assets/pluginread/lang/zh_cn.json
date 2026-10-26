@@ -1,0 +1,12 @@
+{
+	"key.pluginread.open": "打开 Plugin Read",
+	"gui.pluginread.title": "Plugin Read — 服务器转载的 Mod / 插件",
+	"gui.pluginread.download_all": "全部下载",
+	"gui.pluginread.open_folder": "打开文件夹",
+	"gui.pluginread.refresh": "刷新",
+	"gui.pluginread.close": "关闭",
+	"gui.pluginread.click_hint": "点击条目即可下载。",
+	"gui.pluginread.empty": "未找到该服务器转载的文件。",
+	"gui.pluginread.server_mods": "服务器运行的模组 (%s)：",
+	"gui.pluginread.server_mods_none": "该服务器未广播模组信息。"
+}

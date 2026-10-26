@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "pluginread",
+	"version": "${version}",
+	"name": "Plugin Read",
+	"description": "纯客户端：在游戏内读取服务器转载的 Mod 或插件。自动探测服务器清单，浏览、下载并解析 jar 元数据，显示服务器运行的模组列表。Client-side mod to read mods & plugins shared by the server: browse, download, inspect metadata.",
+	"authors": [
+		"XC-Xin-Cheng"
+	],
+	"contact": {},
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"dev.pluginread.client.PluginReadClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.1",
+		"java": ">=25",
+		"fabric-api-base": "*",
+		"fabric-command-api-v2": "*",
+		"fabric-lifecycle-events-v1": "*",
+		"fabric-key-mapping-api-v1": "*",
+		"fabric-networking-api-v1": "*"
+	}
+}

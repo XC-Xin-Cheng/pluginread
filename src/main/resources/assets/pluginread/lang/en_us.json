@@ -1,0 +1,12 @@
+{
+	"key.pluginread.open": "Open Plugin Read",
+	"gui.pluginread.title": "Plugin Read",
+	"gui.pluginread.download_all": "Download All",
+	"gui.pluginread.open_folder": "Open Folder",
+	"gui.pluginread.refresh": "Refresh",
+	"gui.pluginread.close": "Close",
+	"gui.pluginread.click_hint": "Click a row to download it.",
+	"gui.pluginread.empty": "No shared files found for this server.",
+	"gui.pluginread.server_mods": "Server mods (%s):",
+	"gui.pluginread.server_mods_none": "No mod list broadcast by this server."
+}
